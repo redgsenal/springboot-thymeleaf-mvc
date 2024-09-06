@@ -11,28 +11,35 @@
 </head>
 <body>
 
-    <div class="container">
-        <h3>Employee Directory</h3>
-        <hr/>
-        <a class="btn btn-primary btn-sm mb-3" th:href="@{/employees/showAddEmployee}">Add Employee</a>
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark">
-                <tr>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="employee : ${employees}">
-                    <td th:text="${employee.firstName}"></td>
-                    <td th:text="${employee.lastName}"></td>
-                    <td th:text="${employee.email}"></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <script type="text/javascript" th:src="@{/scripts/bootstrap.min.js}"></script>
-    <script type="text/javascript" th:src="@{/scripts/main.js}"></script>
+<div class="container">
+    <h3>Employee Directory</h3>
+    <hr/>
+    <a class="btn btn-primary btn-sm mb-3" th:href="@{/employees/showAddEmployee}">Add Employee</a>
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="employee : ${employees}">
+            <td th:text="${employee.firstName}"></td>
+            <td th:text="${employee.lastName}"></td>
+            <td th:text="${employee.email}"></td>
+            <td>
+                <a class="btn btn-primary btn-sm mb-3"
+                   th:href="@{/employees/showUpdateEmployee(employeeId=${employee.id})}">
+                    Update
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script type="text/javascript" th:src="@{/scripts/bootstrap.min.js}"></script>
+<script type="text/javascript" th:src="@{/scripts/main.js}"></script>
 </body>
 </html>
