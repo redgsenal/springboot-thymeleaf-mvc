@@ -1,1 +1,3 @@
-console.log('main js here');
+function confirmDelete() {
+    return confirm('Are you sure you want to delete this employee?');
+}
