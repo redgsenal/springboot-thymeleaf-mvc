@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="stylesheet" th:href="@{/styles/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/styles/main.css}"/>
+        <title>Add New Employee</title>
+    </head>
+    <body>
+        <div class="container">
+            <h3>Employee Directory</h3>
+            <hr/>
+            <p class="h4 mb-4">Save Employee</p>
+            <form action="#" th:action="@{/employees/save}" th:object="${employee}" method="POST">
+                <input class="form-control mb-4 w-25" type="text" th:field="*{firstName}" placeholder="First name"/>
+                <input class="form-control mb-4 w-25" type="text" th:field="*{lastName}" placeholder="Last name"/>
+                <input class="form-control mb-4 w-25" type="text" th:field="*{email}" placeholder="Email"/>
+                <button class="btn btn-info col-2" type="submit">Save</button>
+            </form>
+            <hr/>
+            <a th:href="@{/employees/list}">Back to Employees List</a>
+        </div>
+    <script type="text/javascript" th:src="@{/scripts/bootstrap.min.js}"></script>
+    <script type="text/javascript" th:src="@{/scripts/main.js}"></script>
+    </body>
+</html>
